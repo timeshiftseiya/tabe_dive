@@ -19,6 +19,7 @@
 </template>
 
 <script>
+  import headerData from '../../utils/setHeader'
   import axios from 'axios'
 
   export default {
@@ -29,8 +30,10 @@
   },
   methods: {
     fetchRestaurants() {
-      axios.get('/api/restaurants').then((res) => {
+      axios.get('/api/restaurants', { headers: headerData.setHeader()
+    }).then((res) => {
        this.restaurants.push(res.data.restaurants)
+      headerData.setAccessToken(res)
       })
     }
   },

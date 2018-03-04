@@ -4,6 +4,7 @@
     <router-view></router-view>
     <router-link to="/restaurants">Top</router-link>
     <router-link to="/restaurants_new">お店を登録する</router-link>
+    <router-link to="/login">ログイン</router-link>
   </div>
 </template>
 

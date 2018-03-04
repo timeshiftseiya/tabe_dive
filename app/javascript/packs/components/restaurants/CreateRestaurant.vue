@@ -23,6 +23,7 @@
   </div>
 </template>
 <script>
+  import headerData from '../../utils/setHeader'
   import axios from 'axios'
   export default {
     data() {
@@ -37,7 +38,10 @@
     },
     methods: {
       onSubmit() {
-        axios.post('/api/restaurants', { restaurant: this.form }).then((res) => {
+        axios({ method: 'POST', url: '/api/restaurants', 
+          headers: headerData.setHeader(),
+          data: { restaurant: this.form } 
+        }).then((res) => {
          this.$router.push('/restaurants')
         })
       }
